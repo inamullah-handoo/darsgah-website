@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css?family=Lora|Playfair+Display');
+html,body{
+    font-family: 'Lora', serif;
+}
+.form-group, .form-group label{
+    transition: .5s;
+}
+.form-group:hover{
+    padding-left:10px; 
+}
+.form-group:hover label{
+    transform: scale(1.1);
+}
+
+// $darker: darken($dark,3%);
+$scale:1.4;
+$hover-color:#ed5509;
+
+// hover designs
+.hover-design{
+    position: relative;
+    overflow: hidden;
+    z-index: 92;
+    transition: .6s;
+    // transition-delay: opacity 1s;
+}
+.hover-design:hover{
+    transform: scale(1.2);
+    // opacity: 0;
+}
+.hover-design::before{
+    content: attr(rel);
+    color: $white;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $hover-color;
+    padding: $nav-link-padding-y;
+    transition: .5s;
+    transition-delay: .3s;
+    // opacity: 1;
+    // z-index: 90;
+    // box-sizing: border-box;
+}
+.hover-design:hover::before{
+    bottom: 0;
+}
+.hover-design::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 20%;
+    height: 100%;
+    background: $white;
+    padding: $nav-link-padding-y;
+    transition: .3s;
+    // box-sizing: border-box;
+}
+.hover-design:hover::after{
+    left: 100%;
+}
+
+
+.top-nav{
+    // height: 25px;
+    // font-size: 12px;
+    a{
+        color: $black;
+    }
+    i{
+        transition: 1s;
+    }
+    a:hover i{
+        transform: scale($scale);
+    }
+    .active{
+        background: $dark;
+        color: $white;
+        margin-bottom: 5px;
+    }
+    
+    .logo{
+        line-height: 1;
+        a{
+            font-family: 'Playfair Display', serif;
+        }
+
+        img{
+            width: 90px;
+            height: 90px;
+        }
+
+        .logo-head{
+            font-size: 30px;
+            letter-spacing: 7px;
+            display: block;
+        }
+
+        .logo-bottom{
+            font-size: 15px;
+            // display: block;
+            // background: $dark;
+        }
+    }
+}
+
+// header
+
+// header{
+//     position: sticky;
+//     top: 0;
+//     z-index: 100;
+// }
+
+
+// carousel
+
+// .image-slider{
+
+//     .carousel-inner{
+//         // height: 80vh;
+
+//         // .carousel-item{
+//         //     img{
+//         //         max-width:100%;
+//         //         min-height: 50vh;
+//         //     }
+//         // }
+//         // .image1{
+//         //     background: url("../images/image1.jpg");
+//         //     background-position: center;
+//         //     background-size: cover;
+//         //     background-repeat: no-repeat;
+//         //     background-attachment: fixed;
+//         //     height: 60vh;
+//         //     width: 100%;
+//         // }
+//         // .image2{
+//         //     background: url("../images/image2.jpg");
+//         //     background-position: center;
+//         //     background-size: cover;
+//         //     background-repeat: no-repeat;
+//         //     background-attachment: fixed;
+//         //     height: 60vh;
+//         //     width: 100%;
+//         // }
+//         // .image3{
+//         //     background: url("../images/image3.jpg");
+//         //     background-position: center;
+//         //     background-size: cover;
+//         //     background-repeat: no-repeat;
+//         //     background-attachment: fixed;
+//         //     height: 60vh;
+//         //     width: 100%;
+//         // }
+//     }
+// }
+
+// activities
+.activity {
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+        // orphans: 1;
+        // widows: 1;
+    }
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+        // orphans: 1;
+        // widows: 1;
+    }
+    @include media-breakpoint-only(lg) {
+        column-count: 2;
+        // orphans: 3;
+        // widows: 1;
+    }
+    @include media-breakpoint-only(xl) {
+        column-count: 4;
+        // orphans: 1;
+        // widows: 1;
+    }
+  }
+
+// video link/player
+.video-link{
+    color: $black;
+    display: block;
+    transition: 1s;
+
+    i{
+        transition: transform 2s;
+    }
+}
+.video-link:hover{
+    background: $dark;
+    color: $white;
+}
+.video-link:hover i{
+    transform: scale($scale);
+}
+
+// our team default css
+
+.slider {
+    width: 85%;
+    margin: 100px auto;
+
+    @include media-breakpoint-only(xs){
+        width: 95%;
+    }
+
+    @include media-breakpoint-only(sm){
+        width: 90%;
+    }
+}
+
+.slick-slide {
+    margin: 0px 20px;
+
+    @include media-breakpoint-only(xs){
+        margin: 0 5px;
+        // width: 120px;
+    }
+
+    @include media-breakpoint-only(sm){
+        margin: 0 10px;
+    }
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-prev, .slick-next{
+    top:40%;
+
+    @include media-breakpoint-only(md){
+        top: 50%;
+    }
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: $white;
+    font-size: 3vw;
+}
+
+.slick-slide {
+    transition: all ease-in-out .3s;
+    opacity: .2;
+}
+
+.slick-active {
+    opacity: .5;
+}
+
+.slick-current {
+    opacity: 1;
+}
+
+.slide-main{
+    position: relative;
+
+    .slide-image{
+        overflow: hidden;
+
+        img{
+            transition: 5s;
+        }
+    }
+    .slide-details{
+        line-height: 1;
+        position: absolute;
+        bottom: -180px;
+        left: 0;
+        width: 100%;
+        transition: 2s;
+        opacity: 0.7;
+        // border: 2px solid white;
+        // border-top: 0;
+
+        h5{
+            font-size: 1.8vw;
+        }
+
+        p{
+            font-size: 1.2vw;
+        }
+    }
+}
+.slick-active.slick-center{
+
+    .slide-details{
+        bottom: 0;
+    }
+    
+    img{
+        transform: scale(1.1);
+    }
+}
+
+
+// about us page
+.aboutus-section {
+    padding: 90px 0;
+}
+.aboutus-title {
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin: 0 0 39px;
+    padding: 0 0 11px;
+    position: relative;
+    text-transform: uppercase;
+    color: #000;
+}
+.aboutus-title::after {
+    background: $dark none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 54px;
+}
+.aboutus-text {
+    color: #606060;
+    font-size: 13px;
+    line-height: 22px;
+    margin: 0 0 35px;
+}
+
+// .aboutus-more {
+//     border: 1px solid $dark;
+//     border-radius: 25px;
+//     color: $dark;
+//     display: inline-block;
+//     font-size: 14px;
+//     font-weight: 700;
+//     letter-spacing: 0;
+//     padding: 7px 20px;
+//     text-transform: uppercase;
+//     transition: .5s;
+// }
+// .aboutus-more:hover{
+//     background: $dark;
+//     color: $white;
+// }
+
+.feature .feature-box .feature-content h4 {
+    color: #0f0f0f;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 0 5px;
+}
+
+
+.feature .feature-box .feature-content {
+    float: left;
+    padding-left: 28px;
+    width: 78%;
+}
+.feature .feature-box .feature-content h4 {
+    color: #0f0f0f;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 0 5px;
+}
+.feature .feature-box .feature-content p {
+    color: #606060;
+    font-size: 13px;
+    line-height: 22px;
+}
+
+#right-col{
+    position: relative;
+}
+
+#right-col::before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 3px;
+    height: 80%;
+    background: $dark;
+}
+
+// our team page
+
+.our-team{
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+        // orphans: 1;
+        // widows: 1;
+    }
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+        // orphans: 1;
+        // widows: 1;
+    }
+
+    .card-header{
+        font-size: 22px;
+    }
+}
+
+// contact us page
+#map{
+    height: 400px;
+    width: 100%;
+}
+
+// #contact-us{
+//     input, select, textarea{
+//         border-color: $dark;
+//     }
+// }
+
+// gallery
+.gallery{
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+        // orphans: 1;
+        // widows: 1;
+    }
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+        // orphans: 1;
+        // widows: 1;
+    }
+
+    .card-header{
+        font-size: 22px;
+    }
+}
+.gallery-image{
+    cursor: pointer;
+}
+
+.modal-body{
+    padding: 0;
+
+    img{
+        position: relative;
+    }
+
+    button{
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        z-index: 100;
+    }
+
+    button:hover{
+        color: $danger;
+    }
+}
+
+// login
+
+
+
+// footer
+footer{
+    a{
+        color: $black;
+    }
+    i{
+        transition: 1s;
+    }
+    a:hover{
+        color: $black;
+
+        i{
+            transform: scale($scale);
+        }
+    }
+}
